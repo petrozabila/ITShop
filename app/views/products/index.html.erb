@@ -1,0 +1,21 @@
+<%= render 'static_pages/carousel'%>
+
+<div id='paginator'>
+<%= will_paginate if @products.any? %>
+<%= page_entries_info @products if @products.any? %><br/>
+</div>
+
+<% @products.each do |p|%>
+<%= p.title %>
+<%= p.price %>
+<%= p.description %>
+<% end %>
+
+
+
+<p><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Add a product', new_product_path %></button></p>
+
+
+<div id='paginator'>
+<%= will_paginate if @products.any? %>
+</div>

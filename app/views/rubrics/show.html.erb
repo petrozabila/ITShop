@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rubric.name %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @rubric.body %>
+</p>
+
+<% @rubric.products.each do |p|%>
+<%= p.title %>
+<%= p.price %>
+<%= p.description %>
+<% end %>
+
+
+<%= link_to 'Add a product', new_product_path %>
+
+<%= link_to 'Edit', edit_rubric_path(@rubric) %> |
+<%= link_to 'Back', rubrics_path %>
