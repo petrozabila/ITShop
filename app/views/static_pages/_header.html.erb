@@ -23,9 +23,10 @@
                 <% @rubrics.each do |r|%>
 	                <li><%= link_to "#{r.name.capitalize}", rubric_path(r.id) %></li>
 	                <li class="divider"></li>
+	                <% end %>
               </ul>
             </li>         
-              	<% end %>
+              	
 
 
 
@@ -34,7 +35,7 @@
 
 
 		</ul>
-		<button type="button" class="btn btn-default navbar-btn">Button</button>
+		<!-- <button type="button" class="btn btn-default navbar-btn">Button</button> -->
 		<div class="col-sm-3 col-md-3 pull-right">
         <div class="navbar-text">Text</div>
 		<form class="navbar-form" role="search">
