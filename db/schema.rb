@@ -11,22 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217192214) do
-
-  create_table "controllers", force: true do |t|
-    t.string   "Products"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "models", force: true do |t|
-    t.string   "Order"
-    t.string   "name"
-    t.text     "address"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20141221090421) do
 
   create_table "orders", force: true do |t|
     t.string   "name"
@@ -36,21 +21,34 @@ ActiveRecord::Schema.define(version: 20141217192214) do
     t.datetime "updated_at"
   end
 
+  create_table "product_rubrics", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "rubric_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_rubrics", ["product_id"], name: "index_product_rubrics_on_product_id"
+  add_index "product_rubrics", ["rubric_id"], name: "index_product_rubrics_on_rubric_id"
+
   create_table "products", force: true do |t|
     t.string   "title"
-    t.decimal  "price"
+    t.decimal  "price",       precision: 8, scale: 2, default: 0.0
     t.text     "description"
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "rubric_id"
   end
 
   create_table "rubrics", force: true do |t|
     t.string   "name"
+    t.integer  "position"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "product_rubrics", "products"
+  add_foreign_key "product_rubrics", "rubrics"
 
 end

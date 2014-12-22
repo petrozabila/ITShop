@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
-	belongs_to :rubric
 
-	
+	has_many :product_rubrics
+	has_many :rubrics, through: :product_rubrics
+
 end
