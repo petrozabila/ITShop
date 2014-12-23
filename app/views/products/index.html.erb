@@ -10,6 +10,13 @@
 <p><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Add a product', new_product_path %></button></p>
 
 
+__ <br/>
+
+<% cookies[:cart].split(',').each do |id| %>
+			<%= Product.find(id).title %> <br/>
+			<% end %>
+
+
 <div id='paginator'>
 <%= will_paginate if @products.any? %>
 </div>

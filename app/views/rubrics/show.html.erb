@@ -11,9 +11,11 @@
 
 <% @rubric.products.each do |p|%>
 <%= p.title %>
-<%= p.price %>
+<%= number_to_currency(p.price, unit: 'UAH ') %>
 <%= p.description %>
+<hr>
 <% end %>
+
 
 
 <%= link_to 'Add a product', new_product_path %>
