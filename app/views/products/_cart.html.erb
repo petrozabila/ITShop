@@ -1,6 +1,8 @@
 <div id="cart"><h4>Items in your cart:</h4>
+	<% if cookies[:cart].present? %>
 <% cookies[:cart].split(',').each do |id| %>
 			<%= Product.find(id).title %> <br/>
 			<p><%= link_to 'x', id, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+			<% end %>
 			<% end %>
 </div>
