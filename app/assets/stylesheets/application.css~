@@ -125,17 +125,3 @@
   margin-top: 180px;
   padding-top: 60px;
 }
-
-#cart {
-  position:relative;
-  float:right;
-  margin-top:120px;
-  border-style: solid;
-    border-width: 1px;
-    margin:10px;
-    width: 220px;
-    border-color: #D8D8D8;
-    padding: 10px;
-    border-radius: 8px;
-        background: rgba(240,240,240, 0.3);
-}

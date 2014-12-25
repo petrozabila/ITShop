@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141221090421) do
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rubric_id"
   end
 
   create_table "rubrics", force: true do |t|
@@ -47,8 +48,5 @@ ActiveRecord::Schema.define(version: 20141221090421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_foreign_key "product_rubrics", "products"
-  add_foreign_key "product_rubrics", "rubrics"
 
 end
