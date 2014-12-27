@@ -17,6 +17,9 @@ gem 'ancestry'
 gem 'foreigner'
 gem 'acts_as_list'
 
+gem 'carrierwave'
+gem 'rmagick'
+
 gem 'simple_form'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 

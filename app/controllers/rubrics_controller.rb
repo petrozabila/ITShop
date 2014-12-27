@@ -5,7 +5,7 @@ class RubricsController < ApplicationController
   # GET /rubrics.json
   def index
     @rubrics = Rubric.all
-    @products = Prouct.paginate(:page => params[:page], :per_page => 6)
+    @products = Product.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /rubrics/1

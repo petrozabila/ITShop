@@ -1,9 +1,16 @@
-<table>
-	<tr>
-		<td><%= product.title %> - </td>
-		<td><%= number_to_currency(product.price, unit: 'UAH ') %></td> <!-- ,format: '%n %u' for pre or after position if currency indicator -->
-		<td><%= product.description %></td>
-	</tr>
-</table>
-<%= button_to 'Add to cart', add_to_cart_product_path(product) %>
-<hr>
+
+<div class="col-md-3 col-sm-6 hero-feature">
+		<div class="thumbnail">
+			<div class="caption">
+					<%= link_to product do %>
+					<%= image_tag product.image_url.to_s %>
+						<%= product.title %>
+					<% end %>
+					</br>
+					<strong>price:</strong>
+					<%= number_to_currency(product.price, unit: 'UAH', format: '%n %u') %>
+					</br>
+					<%= button_to "Add to cart", add_to_cart_product_path(product) %>
+				</div>
+		</div>
+	</div>

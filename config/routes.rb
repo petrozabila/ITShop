@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :rubrics
 
+  get 'rubrics/:id' => 'rubrics#show'
+
   resources :products do
     member do
       post 'add_to_cart'

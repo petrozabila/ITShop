@@ -12,7 +12,7 @@
   <tbody>
     <% @rubrics.each do |rubric| %>
       <tr>
-        <td><%= rubric.name %></td>
+        <td><%= link_to "#{rubric.name}", rubric_path(rubric) %></td>
         <td><%= rubric.body %></td>
         <td><%= link_to 'Show', rubric %></td>
         <td><%= link_to 'Edit', edit_rubric_path(rubric) %></td>

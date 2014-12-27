@@ -1,7 +1,8 @@
-<%= simple_form_for @product do |f| %>
+<%= simple_form_for @product, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field :rubric_id %>
   <%= f.input :title, placeholder: 'title of the product' %>
   <%= f.input :description, placeholder: 'describe the product' %>
   <%= f.input :price, placeholder: 'actual price of the product' %>
+  <%= f.input :image %>
   <%= f.submit 'Add a product' %>
 <% end %>

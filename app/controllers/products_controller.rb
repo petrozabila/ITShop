@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 7)
+    @products = Product.paginate(:page => params[:page], :per_page => 6)
     @rubrics = Rubric.all
   end
 
@@ -58,6 +58,17 @@ def create
     end
   end
 
+def change_rubric_position
+    rubric = Rubric.find(params[:id])
+    if params[:move] == 'up'
+      rubric.move_higher
+    else
+      crubric.move_lower
+    end
+    redirect_to :back
+  end
+
+
 
 private
 
@@ -66,7 +77,7 @@ private
   end
 
   def product_params
-	 params.require(:product).permit(:title, :drscription, :price, :image_url, :rubric_id)
+	 params.require(:product).permit(:title, :drscription, :price, :image, :rubric_id)
   end
 
 
