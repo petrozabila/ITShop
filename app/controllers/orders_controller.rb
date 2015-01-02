@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @rubrics = Rubric.all
   end
 
   # GET /orders/1/edit

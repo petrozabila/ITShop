@@ -21,6 +21,13 @@ class ProductsController < ApplicationController
     
   end
 
+def total_price
+  products = cookies[:cart].split(',')
+  products.to_a.sum { |item| item.total_price }
+  
+end
+
+
   def new
   	@product = Product.new
     @rubrics = Rubric.all

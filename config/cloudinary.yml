@@ -1,0 +1,18 @@
+development:
+  cloud_name: ds05ld97e
+  api_key: '138949149143945'
+  api_secret: lpB77ojtYoOwF-Bcvz5aJVuNZIw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ds05ld97e
+  api_key: '138949149143945'
+  api_secret: lpB77ojtYoOwF-Bcvz5aJVuNZIw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ds05ld97e
+  api_key: '138949149143945'
+  api_secret: lpB77ojtYoOwF-Bcvz5aJVuNZIw
+  enhance_image_tag: true
+  static_image_support: false

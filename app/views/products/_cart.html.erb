@@ -2,7 +2,11 @@
 	<% if cookies[:cart].present? %>
 <% cookies[:cart].split(',').each do |id| %>
 			<%= Product.find(id).title %> <br/>
+			<%= Product.find(id).price %> <br/>
 			<p><%= link_to 'x', id, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+			
 			<% end %>
 			<% end %>
+			<%= link_to 'Order', new_order_path %>
 </div>

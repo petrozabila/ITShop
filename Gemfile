@@ -19,6 +19,7 @@ gem 'acts_as_list'
 
 gem 'carrierwave'
 gem 'rmagick'
+gem 'cloudinary'
 
 gem 'simple_form'
 gem 'sdoc', '~> 0.4.0',          group: :doc
