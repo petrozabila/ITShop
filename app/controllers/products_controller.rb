@@ -84,7 +84,7 @@ private
   end
 
   def product_params
-	 params.require(:product).permit(:title, :drscription, :price, :image, :rubric_id)
+	 params.require(:product).permit(:title, :drscription, :price, :image, :rubric_id, :remote_image_url)
   end
 
 

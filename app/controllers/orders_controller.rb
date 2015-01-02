@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @rubrics = Rubric.all
   end
 
   # GET /orders/new
@@ -29,6 +30,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        UserMailer.order_confirmation(@order).deliver_now
+
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
