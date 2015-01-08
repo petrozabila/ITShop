@@ -1,8 +1,8 @@
 
 
-Rubric.create(name:'Cars', positin: 1)
-Rubric.create(name:'Bikes', positin: 2)
-Rubric.create(name:'Boats', positin: 3)
+Rubric.create(name:'Cars', position: 1)
+Rubric.create(name:'Bikes', position: 2)
+Rubric.create(name:'Boats', position: 3)
 
 
 
