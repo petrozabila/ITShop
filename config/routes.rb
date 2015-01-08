@@ -2,23 +2,34 @@ Rails.application.routes.draw do
   
 
 
+ 
+  
   resources :orders
+   
+      get 'orders/new', to: 'orders#new'
+    
 
   get 'static_pages/about_us'
-
   get 'static_pages/contact'
 
   resources :rubrics
-
   get 'rubrics/:id' => 'rubrics#show'
 
   resources :products do
     member do
-      post 'add_to_cart'
+      post 'add_to_cart', to: 'products#add_to_cart'
     end
+    member do
+      put "like", to: "products#upvote"
+      put "dislike", to: "products#downvote"
+    end
+    get 'orders/new', to: 'orders#new'
   end
 
   root 'products#index'
+
+   devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

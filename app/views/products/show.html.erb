@@ -8,7 +8,7 @@
 		  <h4><%= @product.title %></h4>
 		</p>
       <div class='product_image'>
-        <%= image_tag @product.image_url, style:'max-width:1000px; max-height:700px' %>   <!-- cl_image_tag "#{@product.image_url}" -->
+        <%= image_tag @product.image_url.to_s, style:'max-width:1000px; max-height:700px' %>   <!-- cl_image_tag "#{@product.image_url}" -->
       </div>
 
       <div class='info_content'>

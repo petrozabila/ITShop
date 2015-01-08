@@ -1,8 +1,29 @@
 class ProductsController < ApplicationController
   
+  def upvote
+    @product = Product.find(params[:id])
+    @product.upvote_by @product
+    redirect_to products_path
+  end
+
+  def downvote
+    @product = Product.find(params[:id])
+    @product.downvote_by @product
+    redirect_to products_path
+  end
+
+
+
+
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 6)
     @rubrics = Rubric.all
+    if params[:category].present?
+      rubric = Rubric.find(params[:rubric])
+      @products = rubric.products
+    else
+      @products = Product.all.page(params[:page]).per(4)
+    end
+    
   end
 
   def add_to_cart
@@ -24,7 +45,6 @@ class ProductsController < ApplicationController
 def total_price
   products = cookies[:cart].split(',')
   products.to_a.sum { |item| item.total_price }
-  
 end
 
 
@@ -44,6 +64,7 @@ end
   end
 
 def create
+  @rubrics = Rubric.all
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -70,7 +91,7 @@ def change_rubric_position
     if params[:move] == 'up'
       rubric.move_higher
     else
-      crubric.move_lower
+      rubric.move_lower
     end
     redirect_to :back
   end
@@ -84,7 +105,7 @@ private
   end
 
   def product_params
-	 params.require(:product).permit(:title, :drscription, :price, :image, :rubric_id, :remote_image_url)
+	 params.require(:product).permit(:title, :description, :price, :image, :rubric_id, :remote_image_url)
   end
 
 

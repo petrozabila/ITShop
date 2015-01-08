@@ -1,19 +1,46 @@
 <%= render 'static_pages/carousel'%>
 <%= render 'cart' %>
 
-<div id='paginator'>
-<%= will_paginate if @products.any? %>
-<%= page_entries_info @products if @products.any? %><br/>
-</div>
 
-<%= render @products %>
+<div id="paginator"><%= paginate @products, :window => 2 %></div>
+<hr>
 
+
+<% if @products.present? %>
+<% @products.each do |product| %>
+<div class="col-md-3 col-sm-6 hero-feature">
+		<div class="thumbnail">
+			<div class="caption">
+					<%= link_to "#{product.title}", product_path(product) %>
+
+					   <% if (product.image).blank?  %>
+			            <%= image_tag('blank.png', style:'max-width:200px; max-height:100px') %>
+			           <% else %>
+			                <%= link_to image_tag(product.image, style:'max-width:300px; max-height:300px' ), product %>
+			           <% end %>
+			        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+					</br>
+					<strong>price:</strong>
+					<%= number_to_currency(product.price, unit: 'UAH', format: '%n %u') %>
+					</br>
+					<p><%= sanitize( truncate product.description, length: 101) %></p>
+
+					<p>
+					<%= link_to "upvote", like_product_path(product), method: :put %>
+					<%= link_to "downvote", dislike_product_path(product), method: :put %>
+					<%= product.score %>
+				</p>
+					<%= button_to "Add to cart", add_to_cart_product_path(product) %>
+				</div>	
+		</div>
+	</div>
+	<% end %>
+	<% end %>
+
+<br />
 <p><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Add a product', new_product_path %></button></p>
 
 
  <br/>
 
 
-<div id='paginator'>
-<%= will_paginate if @products.any? %>
-</div>

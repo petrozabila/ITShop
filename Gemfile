@@ -12,7 +12,7 @@ gem 'twitter-bootstrap-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'acts_as_votable'
-gem 'will_paginate'
+gem 'kaminari'
 gem 'ancestry'
 gem 'foreigner'
 gem 'acts_as_list'
@@ -20,6 +20,11 @@ gem 'acts_as_list'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'cloudinary'
+
+gem 'inherited_resources', github: 'codecraft63/inherited_resources', branch: 'master'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+
 
 gem 'simple_form'
 gem 'sdoc', '~> 0.4.0',          group: :doc

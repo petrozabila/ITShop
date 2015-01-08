@@ -3,7 +3,11 @@
   <%= f.input :title, placeholder: 'title of the product' %>
   <%= f.input :description, placeholder: 'describe the product' %>
   <%= f.input :price, placeholder: 'actual price of the product' %>
-  <%= f.input :image %>
-  <%= f.input :remote_image_url %>
+  <% Rubric.all.each do |c| %>
+    <%= check_box_tag 'rubric_ids[]', c.id %>
+    <%= c.name %>
+  <% end %>
+  <%= f.file_field :image %>
+  <%= f.input :remote_image_url, "or image URL" %>
   <%= f.submit 'Add a product' %>
 <% end %>

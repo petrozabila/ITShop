@@ -1,4 +1,6 @@
 
+<%= paginate @products, :window => 2 %>
+
 <div class="col-md-3 col-sm-6 hero-feature">
 		<div class="thumbnail">
 			<div class="caption">
@@ -10,6 +12,14 @@
 					<strong>price:</strong>
 					<%= number_to_currency(product.price, unit: 'UAH', format: '%n %u') %>
 					</br>
+
+
+					<p>
+					<%= link_to "upvote", like_product_path(product), method: :put %>
+					<%= link_to "downvote", dislike_product_path(product), method: :put %>
+					<%= product.score %>
+				</p>
+				
 					<%= button_to "Add to cart", add_to_cart_product_path(product) %>
 				</div>
 		</div>

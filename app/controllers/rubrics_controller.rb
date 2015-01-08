@@ -5,7 +5,7 @@ class RubricsController < ApplicationController
   # GET /rubrics.json
   def index
     @rubrics = Rubric.all
-    @products = Product.paginate(:page => params[:page], :per_page => 6)
+    @products = Rubric.products.page(params[:page]).per(8)
   end
 
   # GET /rubrics/1
@@ -13,7 +13,7 @@ class RubricsController < ApplicationController
   def show
     @rubric = Rubric.find(params[:id])
     @rubrics = Rubric.all
-    @products = Product.where(rubric_id: @rubric.id).paginate(:page => params[:page], :per_page => 6)
+    @products = Product.where(rubric_id: @rubric.id).page(params[:page]).per(8)
   end
 
   # GET /rubrics/new
