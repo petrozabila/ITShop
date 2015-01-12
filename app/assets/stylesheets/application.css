@@ -30,6 +30,7 @@
     text-align:center;
     padding:5px;
     width: 100%;
+    padding-top: 70px;
 }
 
 
@@ -149,4 +150,5 @@
 
 #paginator {
   width:1200px;
+  padding: 25px;
 }

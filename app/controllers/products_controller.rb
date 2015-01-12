@@ -33,14 +33,27 @@ class ProductsController < ApplicationController
       products = cookies[:cart].split(',')
       products << product_id
       cookies[:cart] = products.join(',')
-
     else
       cookies[:cart] = product_id
     end
-
     redirect_to :back
-    
   end
+
+
+  def delete_from_cart
+    product_id = params[:id]
+
+    if cookies[:cart].present?
+      products = cookies[:cart].split(',')
+      products.to_a.delete_at(product_id.to_i)
+      cookies[:cart] = products.join(',')
+    else
+      cookies[:cart] = product_id
+    end
+    redirect_to :back
+  end
+    
+  
 
 def total_price
   products = cookies[:cart].split(',')
@@ -79,6 +92,7 @@ def create
   end
 
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url }

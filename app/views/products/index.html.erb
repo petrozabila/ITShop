@@ -11,7 +11,7 @@
 <div class="col-md-3 col-sm-6 hero-feature">
 		<div class="thumbnail">
 			<div class="caption">
-					<%= link_to "#{product.title}", product_path(product) %>
+					<h3><%= link_to "#{product.title}", product_path(product) %></h3>
 
 					   <% if (product.image).blank?  %>
 			            <%= image_tag('blank.png', style:'max-width:200px; max-height:100px') %>
@@ -26,9 +26,11 @@
 					<p><%= sanitize( truncate product.description, length: 101) %></p>
 
 					<p>
+						<button class="btn btn-primary" type="button">
 					<%= link_to "upvote", like_product_path(product), method: :put %>
 					<%= link_to "downvote", dislike_product_path(product), method: :put %>
-					<%= product.score %>
+					<span class="badge"><%= product.score %></span>
+					</button>
 				</p>
 					<%= button_to "Add to cart", add_to_cart_product_path(product) %>
 				</div>	
