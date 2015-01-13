@@ -13,7 +13,7 @@ class RubricsController < ApplicationController
   def show
     @rubric = Rubric.find(params[:id])
     @rubrics = Rubric.all
-    @products = Product.where(rubric_id: @rubric.id).page(params[:page]).per(8)
+    @products = @rubric.products
   end
 
   # GET /rubrics/new

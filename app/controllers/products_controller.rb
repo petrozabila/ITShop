@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   def index
     @rubrics = Rubric.all
     if params[:category].present?
-      rubric = Rubric.find(params[:rubric])
+      rubric = Rubric.find(params[:rubric_id])
       @products = rubric.products
     else
       @products = Product.all.page(params[:page]).per(4)
@@ -52,6 +52,12 @@ class ProductsController < ApplicationController
     end
     redirect_to :back
   end
+
+  def cartClear
+    cookies[:cart] = nil
+    redirect_to root_path
+  end
+
     
   
 

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
 
- 
+ get 'cartClear' => 'products#cartClear', as: 'clear_cart'
   
   resources :orders
    
