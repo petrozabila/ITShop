@@ -13,4 +13,3 @@ Product.create(title: 'Kolymaga', price: 55)
 
 
 
-

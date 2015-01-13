@@ -25,9 +25,6 @@ gem 'inherited_resources', github: 'codecraft63/inherited_resources', branch: 'm
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 
-gem 'delayed_job_active_record'
-
-
 
 gem 'simple_form'
 gem 'sdoc', '~> 0.4.0',          group: :doc

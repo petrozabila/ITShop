@@ -16,7 +16,6 @@ class Product < ActiveRecord::Base
 
 	paginates_per 4
 
-
 	def score
 	  self.get_upvotes.size - self.get_downvotes.size
 	end

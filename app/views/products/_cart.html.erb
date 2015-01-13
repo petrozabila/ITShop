@@ -3,7 +3,7 @@
 <% cookies[:cart].split(',').each do |id| %>
 			<%= Product.find(id).title %> <br/>
 			<%= Product.find(id).price %> <br/>
-			<p><%= link_to 'x', delete_from_cart_product_path(id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+			<p><%= link_to 'x', id, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 		
 			<% end %>

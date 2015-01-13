@@ -12,9 +12,5 @@
 
   <div class="form-actions">
     <%= f.button :submit %>
-    <% @mailings.each do |mailing| if @mailings.present? %>
-    <%= link_to "Deliver", deliver_mailing_path(mailing), :confirm => 'Are you sure?', :method => :post %>
-    <% end %>
-     <% end %>
   </div>
 <% end %>

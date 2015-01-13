@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
 
- get 'cartClear' => 'products#cartClear', as: 'clear_cart'
+get 'cartClear' => 'products#cartClear', as: 'clear_cart' 
   
   resources :orders
    
@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   resources :products do
     member do
       post 'add_to_cart', to: 'products#add_to_cart'
-      delete 'delete_from_cart', to: 'products#delete_from_cart'
     end
     member do
       put "like", to: "products#upvote"

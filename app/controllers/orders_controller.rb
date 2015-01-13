@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @rubrics = Rubric.all
-    @mailings = Mailing.find(:all) if @mailings.present?
   end
 
   # GET /orders/1/edit
